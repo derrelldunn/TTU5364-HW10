@@ -1,7 +1,9 @@
+#Derrell Dunn
+#HW10
+#MATH 5364
 import re # Regular Expression library. Used by read_list_from_file().
 
-
-def bubble_sort(input_list):
+def generic_bubble_sort(input_list):
     # Write the code for this function as described in
     # the presentation. Don't just return 0, but instead
     # return the total number of comparisons used.
@@ -20,29 +22,32 @@ def bubble_sort(input_list):
                 input_list[i + 1] = temp
         passnum = passnum - 1
 
-    '''sorted_list = False
-    list_length = input_list.__len__()
-    assert isinstance(list_length, object)
-    was_sorted = False
-    while was_sorted == False:
-        loop_index = 0
-        while ( loop_index < (list_length -1 )) :
-           was_sorted = True
-           if input_list[loop_index] > input_list[loop_index+1]:
-                tmp_hlder = input_list[loop_index]
-                input_list[loop_index] = input_list[loop_index+1]
-                input_list[loop_index+1] = tmp_hlder
-                was_sorted = False
-                loop_index += 1
-                continue
-           else:
-                loop_index += 1
-                continue'''
-
-    print 'The list length is {}'.format(input_list.__len__())
+     #print 'The list length is {}'.format(input_list.__len__())
     return number_iter
 
 
+def bubble_sort(input_list):
+    # Write the code for this function as described in
+    # the presentation. Don't just return 0, but instead
+    # return the total number of comparisons used.
+    print 'Now sorting....'
+    sorted_list = False
+    list_length = input_list.__len__()
+    assert isinstance(list_length, object)
+    loop_index, loop_count  = 0, 0
+    was_sorted = False
+    while not was_sorted:
+        was_sorted = True
+        for loop_index in range(0, list_length - 1):
+                loop_count += 1
+                if input_list[loop_index] > input_list[loop_index+1]:
+                    tmp_hlder = input_list[loop_index]
+                    input_list[loop_index] = input_list[loop_index+1]
+                    input_list[loop_index+1] = tmp_hlder
+                    was_sorted = False
+                    loop_index  += 1
+    print 'The sorted list length is {}'.format(input_list.__len__())
+    return loop_count
 
 
 ###################################################
@@ -56,6 +61,7 @@ def is_sorted(L):
     i = 0
     while (i<n-1):
         if (L[i] > L[i+1]):
+            print 'failed at index {} words are {} and {}'.format(i, L[i], L[i+1])
             return False
         i += 1
     return True
