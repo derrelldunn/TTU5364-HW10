@@ -1,11 +1,25 @@
 import re # Regular Expression library. Used by read_list_from_file().
 
 
-def bubble_sort(L):
+def bubble_sort(input_list):
     # Write the code for this function as described in
     # the presentation. Don't just return 0, but instead
     # return the total number of comparisons used.
-    return 0 
+    sorted_list = False
+    list_length = input_list.__len__()
+    assert isinstance(list_length, object)
+    was_sorted = False
+    loop_index = 0
+    while ( loop_index < (list_length -2 )):
+        if input_list[loop_index] > input_list[loop_index+1]:
+            tmp_hlder = input_list[loop_index]
+            input_list[loop_index] = input_list[loop_index+1]
+            input_list[loop_index+1] = tmp_hlder
+            was_sorted = False
+            loop_index += 1
+            continue
+    print 'The list length is {}'.format(list_length)
+    return 0
 
 
 
