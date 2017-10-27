@@ -5,21 +5,42 @@ def bubble_sort(input_list):
     # Write the code for this function as described in
     # the presentation. Don't just return 0, but instead
     # return the total number of comparisons used.
-    sorted_list = False
+
+    number_iter = 0
+    exchanges = True
+    passnum = input_list.__len__() - 1
+    while passnum > 0 and exchanges:
+        exchanges = False
+        for i in range(passnum):
+            number_iter = number_iter + 1
+            if input_list[i] > input_list[i + 1]:
+                exchanges = True
+                temp = input_list[i]
+                input_list[i] = input_list[i + 1]
+                input_list[i + 1] = temp
+        passnum = passnum - 1
+
+    '''sorted_list = False
     list_length = input_list.__len__()
     assert isinstance(list_length, object)
     was_sorted = False
-    loop_index = 0
-    while ( loop_index < (list_length -2 )):
-        if input_list[loop_index] > input_list[loop_index+1]:
-            tmp_hlder = input_list[loop_index]
-            input_list[loop_index] = input_list[loop_index+1]
-            input_list[loop_index+1] = tmp_hlder
-            was_sorted = False
-            loop_index += 1
-            continue
-    print 'The list length is {}'.format(list_length)
-    return 0
+    while was_sorted == False:
+        loop_index = 0
+        while ( loop_index < (list_length -1 )) :
+           was_sorted = True
+           if input_list[loop_index] > input_list[loop_index+1]:
+                tmp_hlder = input_list[loop_index]
+                input_list[loop_index] = input_list[loop_index+1]
+                input_list[loop_index+1] = tmp_hlder
+                was_sorted = False
+                loop_index += 1
+                continue
+           else:
+                loop_index += 1
+                continue'''
+
+    print 'The list length is {}'.format(input_list.__len__())
+    return number_iter
 
 
 
